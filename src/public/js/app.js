@@ -1,4 +1,6 @@
 const socket = new WebSocket(`ws://${window.location.host}`);
+const messageList = document.querySelector("ul");
+const messageForm = document.querySelector("form");
 
 socket.addEventListener("message", (message) =>{
     console.log(`Just got this: ${message.data} from the Server at ${message.timeStamp}`);
@@ -15,7 +17,3 @@ socket.addEventListener("close", () => {
 socket.addEventListener("error", () => {
     console.log("Error");
 });
-
-setTimeout(()=>{
-    socket.send("hello from the browser!");
-},10000);
