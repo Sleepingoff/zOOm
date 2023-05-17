@@ -11,6 +11,11 @@ socket.addEventListener("close", () => {
     console.log("Disconnected: Connection closed by Server");
 });
 
+function makeMessage(type, payload){
+    const msg = {type, payload};
+    return JSON.stringify(msg);
+}
+
 socket.addEventListener("message", (message) => {
     const li = document.createElement("li");
     li.innerText = message.data;
@@ -21,15 +26,14 @@ function handleMessageSubmit(event){
     event.preventDefault();
     const input = messageForm.querySelector("input");
     console.log(input.value);
-    socket.send(input.value);
+    socket.send(makeMessage("new_message", input.value));
     input.value = "";
 }
 
 function handleNickSubmit(event){
     event.preventDefault();
     const input = nickForm.querySelector("input");
-    socket.send(input.value);
-    input.value = "";
+    socket.send(makeMessage("nickname", input.value));
 }
 
 messageForm.addEventListener("submit", handleMessageSubmit);
