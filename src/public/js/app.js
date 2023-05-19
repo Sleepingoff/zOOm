@@ -1,4 +1,4 @@
-const socket = new WebSocket(`ws://${window.location.host}`);
+/*const socket = new WebSocket(`ws://${window.location.host}`);
 const messageList = document.querySelector("ul");
 const messageForm = document.querySelector("#message");
 const nickForm = document.querySelector("#nick");
@@ -37,4 +37,4 @@ function handleNickSubmit(event){
 }
 
 messageForm.addEventListener("submit", handleMessageSubmit);
-nickForm.addEventListener("submit", handleNickSubmit);
+nickForm.addEventListener("submit", handleNickSubmit);*/
