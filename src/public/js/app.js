@@ -1,3 +1,4 @@
+const socket = io();
 /*const socket = new WebSocket(`ws://${window.location.host}`);
 const messageList = document.querySelector("ul");
 const messageForm = document.querySelector("#message");
