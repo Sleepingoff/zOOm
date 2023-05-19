@@ -1,4 +1,20 @@
 const socket = io();
+
+const welcome = document.querySelector("#welcome");
+const form = welcome.querySelector("form");
+
+function backendSay(msg){
+    console.log(msg);
+}
+
+function handleRoomSubmit(event){
+    event.preventDefault();
+    const input = form.querySelector("input");
+    socket.emit("enter_room", {payload: input.value},backendSay); 
+    input.value = "";
+}
+
+form.addEventListener("submit", handleRoomSubmit);
 /*const socket = new WebSocket(`ws://${window.location.host}`);
 const messageList = document.querySelector("ul");
 const messageForm = document.querySelector("#message");
